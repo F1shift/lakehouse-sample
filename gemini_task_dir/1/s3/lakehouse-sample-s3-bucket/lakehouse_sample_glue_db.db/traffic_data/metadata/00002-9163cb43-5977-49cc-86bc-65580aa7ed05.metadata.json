@@ -1,0 +1,125 @@
+{
+  "format-version" : 2,
+  "table-uuid" : "3d391e65-e78d-45cc-bda2-61e861bf2f84",
+  "location" : "s3://lakehouse-sample-s3-bucket/lakehouse_sample_glue_db.db/traffic_data",
+  "last-sequence-number" : 2,
+  "last-updated-ms" : 1751607974933,
+  "last-column-id" : 5,
+  "current-schema-id" : 0,
+  "schemas" : [ {
+    "type" : "struct",
+    "schema-id" : 0,
+    "fields" : [ {
+      "id" : 1,
+      "name" : "human_id",
+      "required" : false,
+      "type" : "string",
+      "doc" : ""
+    }, {
+      "id" : 2,
+      "name" : "timestamp",
+      "required" : false,
+      "type" : "timestamp",
+      "doc" : ""
+    }, {
+      "id" : 3,
+      "name" : "direction",
+      "required" : false,
+      "type" : "boolean",
+      "doc" : "True for entering, False for exiting."
+    }, {
+      "id" : 4,
+      "name" : "guessed_age",
+      "required" : false,
+      "type" : "int",
+      "doc" : ""
+    }, {
+      "id" : 5,
+      "name" : "guessed_gender",
+      "required" : false,
+      "type" : "boolean",
+      "doc" : "True for male, False for female."
+    } ]
+  } ],
+  "default-spec-id" : 0,
+  "partition-specs" : [ {
+    "spec-id" : 0,
+    "fields" : [ ]
+  } ],
+  "last-partition-id" : 999,
+  "default-sort-order-id" : 0,
+  "sort-orders" : [ {
+    "order-id" : 0,
+    "fields" : [ ]
+  } ],
+  "properties" : {
+    "write.parquet.compression-codec" : "zstd"
+  },
+  "current-snapshot-id" : 4942405920687426882,
+  "refs" : {
+    "main" : {
+      "snapshot-id" : 4942405920687426882,
+      "type" : "branch"
+    }
+  },
+  "snapshots" : [ {
+    "sequence-number" : 1,
+    "snapshot-id" : 2767998924775044428,
+    "timestamp-ms" : 1751607124656,
+    "summary" : {
+      "operation" : "append",
+      "FIREHOSE-DELIVERY-STREAM-ID" : "084700548016:lakehouse-sample-firehose:1750594103870",
+      "FIREHOSE-INTERNAL-CHECKPOINT" : "000000000000000003,,,000000000000000000",
+      "added-data-files" : "1",
+      "added-records" : "1",
+      "added-files-size" : "1859",
+      "changed-partition-count" : "1",
+      "total-records" : "1",
+      "total-files-size" : "1859",
+      "total-data-files" : "1",
+      "total-delete-files" : "0",
+      "total-position-deletes" : "0",
+      "total-equality-deletes" : "0"
+    },
+    "manifest-list" : "s3://lakehouse-sample-s3-bucket/lakehouse_sample_glue_db.db/traffic_data/metadata/snap-2767998924775044428-1-36c171cc-00dc-472b-8f83-a370910b2017.avro",
+    "schema-id" : 0
+  }, {
+    "sequence-number" : 2,
+    "snapshot-id" : 4942405920687426882,
+    "parent-snapshot-id" : 2767998924775044428,
+    "timestamp-ms" : 1751607974933,
+    "summary" : {
+      "operation" : "append",
+      "FIREHOSE-DELIVERY-STREAM-ID" : "084700548016:lakehouse-sample-firehose:1750594103870",
+      "FIREHOSE-INTERNAL-CHECKPOINT" : "000000000000000004,,,000000000000000000",
+      "added-data-files" : "1",
+      "added-records" : "3",
+      "added-files-size" : "1894",
+      "changed-partition-count" : "1",
+      "total-records" : "4",
+      "total-files-size" : "3753",
+      "total-data-files" : "2",
+      "total-delete-files" : "0",
+      "total-position-deletes" : "0",
+      "total-equality-deletes" : "0"
+    },
+    "manifest-list" : "s3://lakehouse-sample-s3-bucket/lakehouse_sample_glue_db.db/traffic_data/metadata/snap-4942405920687426882-1-896574e7-d4a7-4804-a144-d0341e10da34.avro",
+    "schema-id" : 0
+  } ],
+  "statistics" : [ ],
+  "partition-statistics" : [ ],
+  "snapshot-log" : [ {
+    "timestamp-ms" : 1751607124656,
+    "snapshot-id" : 2767998924775044428
+  }, {
+    "timestamp-ms" : 1751607974933,
+    "snapshot-id" : 4942405920687426882
+  } ],
+  "metadata-log" : [ {
+    "timestamp-ms" : 1750593772005,
+    "metadata-file" : "s3://lakehouse-sample-s3-bucket/lakehouse_sample_glue_db.db/traffic_data/metadata/00000-45dbb51f-0cfa-4cc8-a405-a1620aa16cb1.metadata.json"
+  }, {
+    "timestamp-ms" : 1751607124656,
+    "metadata-file" : "s3://lakehouse-sample-s3-bucket/lakehouse_sample_glue_db.db/traffic_data/metadata/00001-6c493201-9e46-4df1-8b6a-05e272e88707.metadata.json"
+  } ]
+}

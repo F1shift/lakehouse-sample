@@ -1,0 +1,97 @@
+{
+  "format-version" : 2,
+  "table-uuid" : "3d391e65-e78d-45cc-bda2-61e861bf2f84",
+  "location" : "s3://lakehouse-sample-s3-bucket/lakehouse_sample_glue_db.db/traffic_data",
+  "last-sequence-number" : 1,
+  "last-updated-ms" : 1751600898181,
+  "last-column-id" : 5,
+  "current-schema-id" : 0,
+  "schemas" : [ {
+    "type" : "struct",
+    "schema-id" : 0,
+    "fields" : [ {
+      "id" : 1,
+      "name" : "human_id",
+      "required" : false,
+      "type" : "string",
+      "doc" : ""
+    }, {
+      "id" : 2,
+      "name" : "timestamp",
+      "required" : false,
+      "type" : "timestamp",
+      "doc" : ""
+    }, {
+      "id" : 3,
+      "name" : "direction",
+      "required" : false,
+      "type" : "boolean",
+      "doc" : "True for entering, False for exiting."
+    }, {
+      "id" : 4,
+      "name" : "guessed_age",
+      "required" : false,
+      "type" : "int",
+      "doc" : ""
+    }, {
+      "id" : 5,
+      "name" : "guessed_gender",
+      "required" : false,
+      "type" : "boolean",
+      "doc" : "True for male, False for female."
+    } ]
+  } ],
+  "default-spec-id" : 0,
+  "partition-specs" : [ {
+    "spec-id" : 0,
+    "fields" : [ ]
+  } ],
+  "last-partition-id" : 999,
+  "default-sort-order-id" : 0,
+  "sort-orders" : [ {
+    "order-id" : 0,
+    "fields" : [ ]
+  } ],
+  "properties" : {
+    "write.parquet.compression-codec" : "zstd"
+  },
+  "current-snapshot-id" : 6709391953365772085,
+  "refs" : {
+    "main" : {
+      "snapshot-id" : 6709391953365772085,
+      "type" : "branch"
+    }
+  },
+  "snapshots" : [ {
+    "sequence-number" : 1,
+    "snapshot-id" : 6709391953365772085,
+    "timestamp-ms" : 1751600898181,
+    "summary" : {
+      "operation" : "append",
+      "FIREHOSE-DELIVERY-STREAM-ID" : "084700548016:lakehouse-sample-firehose:1750594103870",
+      "FIREHOSE-INTERNAL-CHECKPOINT" : "000000000000000001,,,000000000000000000",
+      "added-data-files" : "1",
+      "added-records" : "1",
+      "added-files-size" : "1859",
+      "changed-partition-count" : "1",
+      "total-records" : "1",
+      "total-files-size" : "1859",
+      "total-data-files" : "1",
+      "total-delete-files" : "0",
+      "total-position-deletes" : "0",
+      "total-equality-deletes" : "0"
+    },
+    "manifest-list" : "s3://lakehouse-sample-s3-bucket/lakehouse_sample_glue_db.db/traffic_data/metadata/snap-6709391953365772085-1-20779657-ba72-42e5-8ca2-6aab096a5b1e.avro",
+    "schema-id" : 0
+  } ],
+  "statistics" : [ ],
+  "partition-statistics" : [ ],
+  "snapshot-log" : [ {
+    "timestamp-ms" : 1751600898181,
+    "snapshot-id" : 6709391953365772085
+  } ],
+  "metadata-log" : [ {
+    "timestamp-ms" : 1750593772005,
+    "metadata-file" : "s3://lakehouse-sample-s3-bucket/lakehouse_sample_glue_db.db/traffic_data/metadata/00000-45dbb51f-0cfa-4cc8-a405-a1620aa16cb1.metadata.json"
+  } ]
+}

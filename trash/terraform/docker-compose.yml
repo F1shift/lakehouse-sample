@@ -1,0 +1,15 @@
+# ワーキングディレクトリを実行ディレクトリとするterraform実行環境を作成する
+version: '3.8'
+services:
+  terraform:
+    image: hashicorp/terraform:latest
+    container_name: terraform
+    working_dir: /workspace
+    volumes:
+      - ./:/workspace
+    environment:
+      - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
+      - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
+      - AWS_DEFAULT_REGION=${AWS_DEFAULT_REGION}
+    tty: true
+
