@@ -1,6 +1,8 @@
 # 目次
 
 - [目次](#目次)
+- [目的](#目的)
+- [構成](#構成)
 - [開発環境設定](#開発環境設定)
   - [pythonをインストール](#pythonをインストール)
   - [aws cliをインストール](#aws-cliをインストール)
@@ -9,6 +11,19 @@
   - [Gemini CLIをインストール](#gemini-cliをインストール)
   - [お勧めのVS Code拡張機能](#お勧めのvs-code拡張機能)
 
+# 目的
+
+Sagemaker Lakehouseの概念検証及びデモするための環境を構築する
+
+# 構成
+
+Sagemaker Lakehouseの一般的な概念図
+
+![SageMakerLakehouse一般概念図](docs/SageMakerLakehouse一般概念図.drawio.png)
+
+今回デモする範囲
+
+![システム構成](docs/AWS構成図.drawio.png)
 
 # 開発環境設定
 
@@ -43,3 +58,4 @@ https://github.com/google-gemini/gemini-cli
 - Markdown All in one
 - Git Graph
 - Gemini Code Asist
+
