@@ -3,6 +3,5 @@
     "fileFiltering": {
         "respectGitIgnore": true,
         "enableRecursiveFileSearch": false
-    },
-    "sandbox": "docker"
+    }
 }
