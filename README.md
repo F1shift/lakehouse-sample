@@ -35,13 +35,13 @@ https://github.com/pyenv/pyenv
 
 https://docs.aws.amazon.com/ja_jp/cli/latest/userguide/getting-started-install.html
 
-## node.jsをインストール(Gemini CLIはnode.jsが必要)
-
-https://nodejs.org/en/download
-
 ## dockerをインストール
 
 https://docs.docker.com/engine/install/ubuntu/#install-using-the-convenience-script
+
+## node.jsをインストール(Gemini CLIはnode.jsが必要)
+
+https://nodejs.org/en/download
 
 ## Gemini CLIをインストール
 
