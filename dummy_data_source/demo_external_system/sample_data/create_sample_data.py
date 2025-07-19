@@ -5,13 +5,13 @@ import random
 from datetime import datetime, timedelta, timezone
 import numpy as np
 
-def create_sample_data():
+def create_sample_data(filename) -> list[dict[str, any]]:
     """
     Generates 100,000 sample data records and saves them to a CSV file
     based on the requirements in the README.md file.
     """
     # --- Constants from README ---
-    FILE_NAME = os.path.join(os.path.dirname(os.path.abspath(__file__)), "sample_data.csv")
+    
     NUM_RECORDS = 100000
     DATE_STR = "2025-01-01"
     MIN_TIME_STR = "08:00:00+0900"
@@ -58,7 +58,7 @@ def create_sample_data():
     max_enter_ts = max_enter_datetime.timestamp()
     
     # --- Data Generation ---
-    with open(FILE_NAME, 'w', newline='', encoding='utf-8') as csvfile:
+    with open(filename, 'w', newline='', encoding='utf-8') as csvfile:
         writer = csv.writer(csvfile)
         
         # Write header
@@ -102,7 +102,9 @@ def create_sample_data():
             # Write row to CSV
             writer.writerow([id_str, enter_str, exit_str, age, gender])
 
-    print(f"Successfully generated {NUM_RECORDS} records in '{FILE_NAME}'")
+    print(f"Successfully generated {NUM_RECORDS} records in '{filename}'")
 
 if __name__ == "__main__":
-    create_sample_data()
+    FILE_NAME = os.path.join(os.path.dirname(os.path.abspath(__file__)), "all_sample_data.csv")
+
+    create_sample_data(FILE_NAME)

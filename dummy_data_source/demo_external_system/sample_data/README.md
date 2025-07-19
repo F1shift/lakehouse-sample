@@ -1,7 +1,7 @@
 # ファイルフォーマット要件
 
 - ファイル形式: CSV
-- ファイル名: sample_data.csv
+- ファイル名: all_sample_data.csv
 - カラム:
   
 | カラム          |                          | 型       | 説明                 |
