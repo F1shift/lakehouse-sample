@@ -1,3 +1,4 @@
+#%%
 import csv
 import uuid
 import os
@@ -64,6 +65,7 @@ def create_sample_data(filename) -> list[dict[str, any]]:
         # Write header
         writer.writerow(["id", "enter_timestamp", "exit_timestamp", "age", "gender"])
         
+        records = []
         for _ in range(NUM_RECORDS):
             # Generate enter_timestamp with two peaks (around noon and 20:00)
             peak_ts = random.choice([peak1_ts, peak2_ts])
@@ -100,11 +102,14 @@ def create_sample_data(filename) -> list[dict[str, any]]:
             id_str = str(uuid.uuid4())
             
             # Write row to CSV
-            writer.writerow([id_str, enter_str, exit_str, age, gender])
+            records.append([id_str, enter_str, exit_str, age, gender])
+
+        # Sort records by enter_timestamp
+        records.sort(key=lambda x: datetime.fromisoformat(x[1]))
+        writer.writerows(records)
 
     print(f"Successfully generated {NUM_RECORDS} records in '{filename}'")
 
-if __name__ == "__main__":
-    FILE_NAME = os.path.join(os.path.dirname(os.path.abspath(__file__)), "all_sample_data.csv")
+FILE_NAME = os.path.join(os.path.dirname(os.path.abspath(__file__)), "all_sample_data.csv")
 
-    create_sample_data(FILE_NAME)
+create_sample_data(FILE_NAME)

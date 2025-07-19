@@ -16,6 +16,7 @@
 
 - 100000件のデータを生成する
 - 100000件のデータをCSV形式で保存する
+- データをenter_timestampを昇順で並ぶこと
 - enter_timestamp、exit_timestampの日付部分は「2025-01-01」にする
 - enter_timestamp、exit_timestampの時刻部分の最小値は「00:08:00Z+0900」、最大値は「21:00:00Z+0900」にする
 - exit_timestampは必ずenter_timestampよりも後になる
