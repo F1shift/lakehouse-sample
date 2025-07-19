@@ -1,6 +1,6 @@
-"""
 # やってほしいこと
 pythonでall_sample_data.csvを読み込んで以下グラフを作成してください。
+出力ディレクトリはplot_data.pyと同じ階層にしてください。
 
 ## グラフ1
 ファイル名: all_sample_data_timestamp.png
@@ -24,5 +24,4 @@ pythonでall_sample_data.csvを読み込んで以下グラフを作成してく�
 
 # インストールしているライブラリ
 @dummy_data_source/demo_external_system/sample_data/requirements.txt に参照すること。
-必要であればpipパッケージをインストールしてrequirements.txtを更新してください
-"""
+必要であればpipパッケージをインストールしてrequirements.txtを更新してください。
