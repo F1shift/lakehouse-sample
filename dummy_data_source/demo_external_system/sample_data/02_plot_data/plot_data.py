@@ -1,6 +1,5 @@
 import pandas as pd
 import matplotlib.pyplot as plt
-import numpy as np
 import os
 
 source_data = os.path.join(os.path.dirname(__file__), '../01_create_data/output/all_sample_data.csv')
