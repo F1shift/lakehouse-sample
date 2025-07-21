@@ -7,19 +7,21 @@
   - [pythonをインストール](#pythonをインストール)
   - [aws cliをインストール](#aws-cliをインストール)
   - [node.jsをインストール(Gemini CLIはnode.jsが必要)](#nodejsをインストールgemini-cliはnodejsが必要)
-  - [dockerをインストール](#dockerをインストール)
+  - [dockerをインストール(Gemini Sandboxで必要)](#dockerをインストールgemini-sandboxで必要)
   - [Gemini CLIをインストール](#gemini-cliをインストール)
+  - [~~AWS CDKをインストール~~](#aws-cdkをインストール)
+  - [Terraformをインストール](#terraformをインストール)
   - [お勧めのVS Code拡張機能](#お勧めのvs-code拡張機能)
 
 # 目的
 
-Sagemaker Lakehouseの概念検証及びデモするための環境を構築する
+まず、SageMaker Lakehouseの概念検証及びデモするための環境を構築する
 
 # 構成
 
-Sagemaker Lakehouseの一般的な概念図
+まず、SageMaker Lakehouseの一般的な概念図
 
-![SageMakerLakehouse一般概念図](docs/SageMakerLakehouse一般概念図.drawio.png)
+![まず、SageMakerLakehouse一般概念図](docs/まず、SageMakerLakehouse一般概念図.drawio.png)
 
 今回デモする範囲
 
@@ -35,17 +37,25 @@ https://github.com/pyenv/pyenv
 
 https://docs.aws.amazon.com/ja_jp/cli/latest/userguide/getting-started-install.html
 
-## dockerをインストール
-
-https://docs.docker.com/engine/install/ubuntu/#install-using-the-convenience-script
-
 ## node.jsをインストール(Gemini CLIはnode.jsが必要)
 
 https://nodejs.org/en/download
 
+## dockerをインストール(Gemini Sandboxで必要)
+
+https://docs.docker.com/engine/install/ubuntu/#install-using-the-convenience-script
+
 ## Gemini CLIをインストール
 
 https://github.com/google-gemini/gemini-cli
+
+## ~~AWS CDKをインストール~~
+
+https://docs.aws.amazon.com/ja_jp/cdk/v2/guide/getting-started.html
+
+## Terraformをインストール
+
+https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli
 
 ## お勧めのVS Code拡張機能
 
@@ -58,4 +68,3 @@ https://github.com/google-gemini/gemini-cli
 - Markdown All in one
 - Git Graph
 - Gemini Code Asist
-
