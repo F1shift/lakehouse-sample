@@ -8,6 +8,8 @@ from firehose import FirehoseClient
 logger = logging.getLogger()
 logger.setLevel(logging.INFO)
 
+SOURCE_S3_BUCKET_NAME = os.environ["SOURCE_S3_BUCKET_NAME"]
+SOURCE_S3_PREFIX = os.environ["SOURCE_S3_PREFIX"]
 DELIVERY_STREAM_NAME = os.environ["DELIVERY_STREAM_NAME"]
 
 def lambda_handler(event, context):

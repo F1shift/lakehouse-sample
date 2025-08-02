@@ -20,14 +20,14 @@ resource "aws_iam_role" "lambda_role" {
 # Package the Lambda function code
 data "archive_file" "src" {
   type        = "zip"
-  source_file = "${path.module}/lambda/dummy_data_generator/src"
-  output_path = "${path.module}/lambda/dummy_data_generator/src.zip"
+  source_dir  = "${path.module}/../../../../dummy_data_source/demo_external_system/data_injection/lambda/dummy_data_injector/src"
+  output_path = "${path.module}/../../../../dummy_data_source/demo_external_system/data_injection/lambda/dummy_data_injector/src.zip"
 }
 
 # Lambda function
-resource "aws_lambda_function" "example" {
+resource "aws_lambda_function" "lambda_dummy_data_generator" {
   filename         = data.archive_file.src.output_path
-  function_name    = "${var.locals_env.resource_prefix}-lambda-dummy-data-generator}"
+  function_name    = "${var.locals_env.resource_prefix}-lambda-dummy-data-generator"
   role             = aws_iam_role.lambda_role.arn
   handler          = "lambda_function.lambda_handler"
   source_code_hash = data.archive_file.src.output_base64sha256
@@ -36,13 +36,13 @@ resource "aws_lambda_function" "example" {
 
   environment {
     variables = {
-      DELIVERY_STREAM_NAME = aws_kinesis_firehose_delivery_stream.firehose1.name
-      S3_BUCKET            = var.locals_env.sagemaker_unified_studio.default_glue_s3_bucket
-
+      DELIVERY_STREAM_NAME  = aws_kinesis_firehose_delivery_stream.firehose1.name
+      SOURCE_S3_BUCKET_NAME = aws_s3_bucket.dummy_data_bucket.bucket
+      SOURCE_S3_PREFIX      = var.locals_cmn.dummy_data_prefix
     }
   }
 
   tags = {
-    Name = "${var.locals_env.resource_prefix}-lambda-dummy-data-generator}"
+    Name = "${var.locals_env.resource_prefix}-lambda-dummy-data-generator"
   }
 }
