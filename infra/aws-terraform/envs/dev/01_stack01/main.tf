@@ -5,6 +5,7 @@ terraform {
       version = "~> 6.4"
     }
   }
+  required_version = "~> 1.12.2"
 }
 
 # Configure the AWS Provider

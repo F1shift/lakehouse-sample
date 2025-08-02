@@ -10,7 +10,8 @@
   - [dockerをインストール(Gemini Sandboxで必要)](#dockerをインストールgemini-sandboxで必要)
   - [Gemini CLIをインストール](#gemini-cliをインストール)
   - [~~AWS CDKをインストール~~](#aws-cdkをインストール)
-  - [Terraformをインストール](#terraformをインストール)
+  - [Terraformをインストール(tfenv)](#terraformをインストールtfenv)
+  - [AWS SAM CLIをインストール](#aws-sam-cliをインストール)
   - [お勧めのVS Code拡張機能](#お勧めのvs-code拡張機能)
 
 # 目的
@@ -53,15 +54,20 @@ https://github.com/google-gemini/gemini-cli
 
 https://docs.aws.amazon.com/ja_jp/cdk/v2/guide/getting-started.html
 
-## Terraformをインストール
+## Terraformをインストール(tfenv)
 
-https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli
+https://github.com/tfutils/tfenv
+
+## AWS SAM CLIをインストール
+
+https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/install-sam-cli.html
 
 ## お勧めのVS Code拡張機能
 
 必須
 - Python
 - Python Debugger
+- AWS Toolkit (AWS SAM CLIでローカルでデバッグ用)
 
 便利ツール
 - Pylance/Black Formatter(好きな片方でよい)
