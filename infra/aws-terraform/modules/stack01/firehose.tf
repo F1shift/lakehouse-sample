@@ -127,8 +127,9 @@ resource "aws_kinesis_firehose_delivery_stream" "firehose1" {
     }
 
     cloudwatch_logging_options {
-      enabled        = true
-      log_group_name = "${var.locals_env.resource_prefix}/firehose/${var.locals_env.resource_prefix}-firehose"
+      enabled         = true
+      log_group_name  = "${var.locals_env.resource_prefix}/firehose/"
+      log_stream_name = "${var.locals_env.resource_prefix}-firehose"
     }
   }
 }
