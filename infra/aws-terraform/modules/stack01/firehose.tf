@@ -109,6 +109,7 @@ resource "aws_kinesis_firehose_delivery_stream" "firehose1" {
   name        = "${var.locals_env.resource_prefix}-firehose"
   destination = "iceberg"
 
+
   iceberg_configuration {
     role_arn           = aws_iam_role.firehose_role.arn
     catalog_arn        = "arn:aws:glue:${var.locals_cmn.region}:${data.aws_caller_identity.current.account_id}:catalog"
@@ -123,6 +124,11 @@ resource "aws_kinesis_firehose_delivery_stream" "firehose1" {
     destination_table_configuration {
       database_name = var.locals_env.sagemaker_unified_studio.default_glue_database
       table_name    = aws_glue_catalog_table.traffic_data.name
+    }
+
+    cloudwatch_logging_options {
+      enabled        = true
+      log_group_name = "${var.locals_env.resource_prefix}/firehose/${var.locals_env.resource_prefix}-firehose"
     }
   }
 }
