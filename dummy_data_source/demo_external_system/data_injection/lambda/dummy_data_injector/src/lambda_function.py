@@ -33,6 +33,10 @@ def lambda_handler(event, context):
     target_filename = f"sample_data_2025-01-01T{now.strftime('%H_%M')}.csv"
     # S3のキーは '/' で結合する
     s3_key = f"{SOURCE_S3_PREFIX}/{target_filename}"
+
+    # デバッグ用
+    s3_key = f"{SOURCE_S3_PREFIX}/sample_data_2025-01-01T10_00.csv"
+
     logger.info(f"Attempting to get object from S3: Bucket={SOURCE_S3_BUCKET_NAME}, Key={s3_key}")
 
     s3_client = boto3.client('s3')

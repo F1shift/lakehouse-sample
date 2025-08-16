@@ -5,8 +5,7 @@ resource "aws_glue_catalog_table" "traffic_data" {
   table_type = "EXTERNAL_TABLE"
 
   parameters = {
-    EXTERNAL              = "TRUE"
-    "parquet.compression" = "SNAPPY"
+    "format" = "parquet"
   }
 
   storage_descriptor {
@@ -17,9 +16,8 @@ resource "aws_glue_catalog_table" "traffic_data" {
     ser_de_info {
       name                  = "traffic_data"
       serialization_library = "org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe"
-
       parameters = {
-        "serialization.format" = 1
+        "serialization.format" = "1"
       }
     }
 
@@ -49,6 +47,13 @@ resource "aws_glue_catalog_table" "traffic_data" {
       name    = "direction"
       type    = "int"
       comment = "entry is 1, exit is -1."
+    }
+  }
+
+  open_table_format_input {
+    iceberg_input {
+      metadata_operation = "CREATE"
+      version            = "2"
     }
   }
 }
