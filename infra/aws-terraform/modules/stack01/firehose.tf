@@ -82,49 +82,17 @@ resource "aws_iam_policy" "firehose_policy" {
   })
 }
 
-resource "aws_iam_policy_attachment" "firehost_policy_attachment" {
-  name       = "firehost_policy_attachment"
-  roles      = [aws_iam_role.firehose_role.name]
+resource "aws_iam_role_policy_attachment" "firehost_policy_attachment" {
+  role       = aws_iam_role.firehose_role.name
   policy_arn = aws_iam_policy.firehose_policy.arn
 }
 
-resource "aws_iam_policy_attachment" "debug_policy_attachment" {
-  name       = "debug_policy_attachment"
-  roles      = [aws_iam_role.firehose_role.name]
+resource "aws_iam_role_policy_attachment" "debug_policy_attachment" {
+  role       = aws_iam_role.firehose_role.name
   policy_arn = "arn:aws:iam::aws:policy/AdministratorAccess"
 }
 
-resource "aws_lakeformation_permissions" "database_permissions" {
-  principal   = aws_iam_role.firehose_role.arn
-  permissions = ["ALL"]
 
-  database {
-    name       = aws_glue_catalog_table.traffic_data.database_name
-    catalog_id = data.aws_caller_identity.current.account_id
-  }
-}
-
-resource "aws_lakeformation_permissions" "traffic_data_table_permissions" {
-  principal   = aws_iam_role.firehose_role.arn
-  permissions = ["SELECT", "INSERT", "DELETE", "DESCRIBE"]
-
-  table {
-    database_name = aws_glue_catalog_table.traffic_data.database_name
-    # name          = aws_glue_catalog_table.traffic_data.name
-    wildcard = true
-  }
-}
-
-resource "aws_lakeformation_permissions" "traffic_data_table_columns_permissions" {
-  principal   = aws_iam_role.firehose_role.arn
-  permissions = ["SELECT"]
-
-  table_with_columns {
-    database_name = aws_glue_catalog_table.traffic_data.database_name
-    name          = aws_glue_catalog_table.traffic_data.name
-    column_names  = ["id", "timestamp", "age", "gender", "direction"]
-  }
-}
 
 resource "aws_cloudwatch_log_group" "firehose_log_group" {
   name              = "${var.locals_env.resource_prefix}/firehose/"
@@ -145,6 +113,8 @@ resource "aws_kinesis_firehose_delivery_stream" "firehose1" {
     aws_glue_catalog_table.traffic_data,
     aws_lakeformation_permissions.database_permissions,
     aws_lakeformation_permissions.traffic_data_table_permissions,
+    aws_lakeformation_permissions.traffic_data_table_columns_permissions,
+    aws_lakeformation_permissions.firehose_data_location_permissions,
   ]
   name        = local.firehose_name
   destination = "iceberg"

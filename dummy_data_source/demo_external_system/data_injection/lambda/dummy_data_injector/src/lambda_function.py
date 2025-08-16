@@ -8,9 +8,9 @@ import csv
 
 # リモートデバッグする際のみ有効にする。
 # AWS環境にデプロイする際に無効化すること。
-import ptvsd
-ptvsd.enable_attach(address=('0.0.0.0', 9999), redirect_output=True)
-ptvsd.wait_for_attach()
+# import ptvsd
+# ptvsd.enable_attach(address=('0.0.0.0', 9999), redirect_output=True)
+# ptvsd.wait_for_attach()
 
 logger = logging.getLogger()
 logger.setLevel(logging.INFO)
@@ -35,7 +35,7 @@ def lambda_handler(event, context):
     s3_key = f"{SOURCE_S3_PREFIX}/{target_filename}"
 
     # デバッグ用
-    s3_key = f"{SOURCE_S3_PREFIX}/sample_data_2025-01-01T10_00.csv"
+    # s3_key = f"{SOURCE_S3_PREFIX}/sample_data_2025-01-01T10_00.csv"
 
     logger.info(f"Attempting to get object from S3: Bucket={SOURCE_S3_BUCKET_NAME}, Key={s3_key}")
 
