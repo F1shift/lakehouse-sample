@@ -48,8 +48,16 @@ resource "aws_glue_catalog_table" "traffic_data" {
       type    = "int"
       comment = "entry is 1, exit is -1."
     }
+
+    columns {
+      name    = "shop_id"
+      type    = "string"
+      comment = "xxxxxxx"
+    }
   }
 
+  # たまにメタデータが作成されないことがあります。
+  # スタックをdestroyして再度applyすれば治ります。
   open_table_format_input {
     iceberg_input {
       metadata_operation = "CREATE"

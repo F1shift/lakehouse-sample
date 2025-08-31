@@ -13,5 +13,6 @@ locals {
         private_route_table = "rtb-01410edc7a5e47a07"
       }
     }
+    administrator_user = "arn:aws:iam::084700548016:user/f1shift"
   }
 }

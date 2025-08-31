@@ -1,2 +1,2 @@
-id,timestamp,age,gender,direction
-2a275343-51ea-4717-89f3-d3f58310782b,2025-01-01T20:48:58+0900,25,female,-1
+id,timestamp,age,gender,direction,shop_id
+2a275343-51ea-4717-89f3-d3f58310782b,2025-01-01T20:48:58+0900,25,female,-1,0123456

@@ -32,12 +32,15 @@ exit_df['direction'] = -1
 # データを結合
 all_df = pd.concat([enter_df, exit_df])
 
+# shop_idカラムを追加
+all_df['shop_id'] = "0123456"
+
 # タイムスタンプでソート
 all_df.sort_values('timestamp', inplace=True)
 
 # タイムスタンプで分単位にグループ化
-# timestamp列を分単位で切り捨てた値('T'は分を意味します)でグループ化します。
-for group_timestamp, group in all_df.groupby(all_df['timestamp'].dt.floor('T')):
+# timestamp列を分単位で切り捨てた値('min'は分を意味します)でグループ化します。
+for group_timestamp, group in all_df.groupby(all_df['timestamp'].dt.floor('min')):
     # グループのキーとなっているタイムスタンプから直接ファイル名を生成します。
     output_filename = group_timestamp.strftime('sample_data_%Y-%m-%dT%H_%M.csv')
     output_path = os.path.join(output_dir, output_filename)
