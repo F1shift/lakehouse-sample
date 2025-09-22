@@ -22,7 +22,7 @@
 
 まず、SageMaker Lakehouseの一般的な概念図
 
-![まず、SageMakerLakehouse一般概念図](docs/まず、SageMakerLakehouse一般概念図.drawio.png)
+![SageMakerLakehouse一般概念図](docs/SageMakerLakehouse一般概念図.drawio.png)
 
 今回デモする範囲
 
